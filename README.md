@@ -34,6 +34,21 @@
     - mkdir -p
     - rm -rfv
 
+- GLOBBING
+    - *
+    - ?
+    - []
+    - {start..end} AND {start..end..step}
+        | Command                      | Output                                           | Description                           |
+        | ---------------------------- | ------------------------------------------------ | ------------------------------------- |
+        | `echo {1..9}`                | `1 2 3 4 5 6 7 8 9`                              | Expands numbers 1 to 9                |
+        | `echo {a..f}`                | `a b c d e f`                                    | Expands letters a to f                |
+        | `echo {1..10..2}`            | `1 3 5 7 9`                                      | Expands numbers 1 to 10 in steps of 2 |
+        | `mkdir project_{1..3}`       | Creates folders: `project_1 project_2 project_3` | Batch create directories              |
+        | `cp file{1..3}.txt /tmp/`    | Copies `file1.txt`, `file2.txt`, `file3.txt`     | Useful for repetitive tasks           |
+        | `touch log_{2020..2025}.txt` | Creates: `log_2020.txt` → `log_2025.txt`         | Sequence with prefix/suffix           |
+
+
 - chmod
     - chmod u+x archivo.sh      # añade permiso de ejecución al usuario
     - chmod g-w archivo.txt     # quita permiso de escritura al grupo
