@@ -27,6 +27,56 @@
 
 - grep
 
+- if statement 
+    if [ $var1 gt $var2 ]; then
+        echo "message"
+    elif [ $var1 gt $var2 ]; then
+        action idk
+    else
+        another action
+    fi
+    ## COMPARISONS ##
+    - ## Numeric comparisons
+        | Operator | Meaning          | Example         |
+        | -------- | ---------------- | --------------- |
+        | `-eq`    | equal to         | `[ $a -eq $b ]` |
+        | `-ne`    | not equal to     | `[ $a -ne $b ]` |
+        | `-gt`    | greater than     | `[ $a -gt $b ]` |
+        | `-lt`    | less than        | `[ $a -lt $b ]` |
+        | `-ge`    | greater or equal | `[ $a -ge $b ]` |
+        | `-le`    | less or equal    | `[ $a -le $b ]` |
+    - ## String Comparisons
+        | Operator | Meaning                                    | Example            |
+        | -------- | ------------------------------------------ | ------------------ |
+        | `=`      | strings are equal                          | `[ "$a" = "$b" ]`  |
+        | `!=`     | strings are different                      | `[ "$a" != "$b" ]` |
+        | `<`      | first string is *less* (alphabetically)    | `[ "$a" \< "$b" ]` |
+        | `>`      | first string is *greater* (alphabetically) | `[ "$a" \> "$b" ]` |
+        | `-z`     | string is **empty**                        | `[ -z "$a" ]`      |
+        | `-n`     | string is **not empty**                    | `[ -n "$a" ]`      |
+    - ## File comparisons
+        | Operator | Meaning                    | Example             |
+        | -------- | -------------------------- | ------------------- |
+        | `-e`     | file exists                | `[ -e file.txt ]`   |
+        | `-f`     | file exists and is regular | `[ -f file.txt ]`   |
+        | `-d`     | file is a directory        | `[ -d /home/user ]` |
+        | `-r`     | file is readable           | `[ -r file.txt ]`   |
+        | `-w`     | file is writable           | `[ -w file.txt ]`   |
+        | `-x`     | file is executable         | `[ -x script.sh ]`  |
+        | `-s`     | file is not empty          | `[ -s file.txt ]`   |
+
+- Visualizacion de archivos
+    -   | Comando | Descripción                                                                      | Ejemplo            |
+        | ------- | -------------------------------------------------------------------------------- | ------------------ |
+        | `cat`   | Muestra el contenido completo del archivo.                                       | `cat archivo.txt`  |
+        | `tac`   | Igual que `cat`, pero **muestra el contenido al revés** (de abajo hacia arriba). | `tac archivo.txt`  |
+        | `less`  | Muestra el contenido **página por página** (permite desplazarte con teclas).     | `less archivo.txt` |
+        | `more`  | Similar a `less`, pero más básico.                                               | `more archivo.txt` |
+        | `head`  | Muestra las **primeras líneas** de un archivo (por defecto, 10).                 | `head archivo.txt` |
+        | `tail`  | Muestra las **últimas líneas** del archivo. Muy usado para logs.                 | `tail archivo.log` |
+        | `nl`    | Muestra el contenido **numerando las líneas**.                                   | `nl archivo.txt`   |
+        | `wc`    | Muestra la **cantidad de líneas, palabras y caracteres**.                        | `wc archivo.txt`   |
+
 - FLAGS = each letter after the "-" is an option
     - ls -la
     - cp -p
@@ -47,7 +97,6 @@
         | `mkdir project_{1..3}`       | Creates folders: `project_1 project_2 project_3` | Batch create directories              |
         | `cp file{1..3}.txt /tmp/`    | Copies `file1.txt`, `file2.txt`, `file3.txt`     | Useful for repetitive tasks           |
         | `touch log_{2020..2025}.txt` | Creates: `log_2020.txt` → `log_2025.txt`         | Sequence with prefix/suffix           |
-
 
 - chmod
     - chmod u+x archivo.sh      # añade permiso de ejecución al usuario
